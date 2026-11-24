@@ -1,0 +1,14 @@
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated builds
+backend/.venv/
+frontend/node_modules/
+frontend/.expo/
+frontend/.metro-cache/
+.dist/
+
+# Internal development notes and generated test reports
+memory/
