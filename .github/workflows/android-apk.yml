@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   build:
-    name: Build installable release APK
+    name: Build installable 64-bit release APK
     runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
@@ -40,12 +40,12 @@ jobs:
 
       - name: Build APK with the app bundle embedded
         working-directory: frontend/android
-        run: ./gradlew --no-daemon assembleRelease
+        run: ./gradlew --no-daemon -PreactNativeArchitectures=arm64-v8a assembleRelease
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v7
         with:
-          name: JoyRide-APK
+          name: JoyRide-APK-64bit
           path: frontend/android/app/build/outputs/apk/release/app-release.apk
           archive: false
           if-no-files-found: error
